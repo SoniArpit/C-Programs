@@ -1,3 +1,4 @@
+// Double ended queue program
 #include <stdio.h>
 #include <stdlib.h>
 void insR();
@@ -95,7 +96,7 @@ void insL()
         else
         {
             l--;
-                }
+        }
         dq[l] = val;
     }
 }
