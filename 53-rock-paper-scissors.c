@@ -1,4 +1,4 @@
-//rock, paper & scissors
+//rock, paper & scissors - @code_snail
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -60,7 +60,7 @@ int main()
         printf("| You choose: %c   |\n", playerChar);
         printf(" -----------------\n\n");
 
-        //computer input generate
+        //computer generate
         printf("Press 1 for Rock, Press 2 for Paper, Press 3 for Scissors\n\n");
         printf("\tComputer's turn\n");
         temp = generateRandomNumber(3) + 1;
