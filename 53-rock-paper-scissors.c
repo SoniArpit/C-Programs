@@ -1,4 +1,5 @@
-//rock, paper & scissors - @code_snail
+//Follow me on insta - @codesnail
+//rock, paper & scissors -
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
