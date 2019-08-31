@@ -4,6 +4,5 @@
         "string.h": "c",
         "stdio.h": "c",
         "math.h": "c"
-    },
-    "workbench.colorTheme": "Monokai"
+    }
 }
