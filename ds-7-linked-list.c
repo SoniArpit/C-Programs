@@ -2,6 +2,7 @@
 #include <stdlib.h>
 void ins_at_beg();
 void ins_at_end();
+void ins_at_loc();
 void del_at_beg();
 void del_at_end();
 void display();
@@ -20,10 +21,11 @@ int main()
         printf("\n\tLinked List\n");
         printf("1. Insert at beginnig of the linked list\n");
         printf("2. Insert at end of the linked list\n");
-        printf("3. Delete at begining of the linked list\n");
-        printf("4. Delete at end of the linked list\n");
-        printf("5. Display\n");
-        printf("6. EXIT\n");
+        printf("3. Insert at Particular Location in linked list\n");
+        printf("4. Delete at begining of the linked list\n");
+        printf("5. Delete at end of the linked list\n");
+        printf("6. Display\n");
+        printf("7. EXIT\n");
         printf("\n\tEnter your choice: ");
         scanf("%d", &ch);
 
@@ -36,20 +38,23 @@ int main()
             ins_at_end();
             break;
         case 3:
-            del_at_beg();
+            ins_at_loc();
             break;
         case 4:
-            del_at_end();
+            del_at_beg();
             break;
         case 5:
-            display();
+            del_at_end();
             break;
         case 6:
+            display();
+            break;
+        case 7:
             exit(1);
         default:
             break;
         }
-    } while (ch != 6);
+    } while (ch != 7);
 
     return 0;
 }
@@ -101,6 +106,45 @@ void ins_at_end()
         }
     }
 }
+
+void ins_at_loc()
+{
+    struct node *ptr, *temp, *pretemp;
+    int loc;
+    ptr = (struct node *)malloc(sizeof(struct node));
+    if (ptr == NULL)
+    {
+        printf("Memory is not available");
+    }
+    else
+    {
+        printf("Enter location(number) to enter: ");
+        scanf("%d", &loc);
+        printf("Enter a value to enter in linked list: ");
+        scanf("%d", &val);
+        ptr->data = val;
+        ptr->next = NULL;
+        // check List is empty or not
+        if (start == NULL)
+        {
+            start = ptr;
+        }
+        else
+        {
+
+            temp = start;
+            pretemp = start;
+            while (pretemp->data != loc)
+            {
+                pretemp = temp;
+                temp = temp->next;
+            }
+            ptr->next = pretemp->next;
+            pretemp->next = ptr;
+        }
+    }
+}
+
 void del_at_beg()
 {
     if (start == NULL)
@@ -135,7 +179,7 @@ void del_at_end()
         prevptr->next = NULL;
         printf("\n\t%d is Deleted\t", ptr->data);
         free(ptr);
-        }
+    }
 }
 void display()
 {
