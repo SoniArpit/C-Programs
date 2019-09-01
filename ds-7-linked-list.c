@@ -5,6 +5,7 @@ void ins_at_end();
 void ins_at_loc();
 void del_at_beg();
 void del_at_end();
+void del_at_loc();
 void display();
 struct node
 {
@@ -21,11 +22,12 @@ int main()
         printf("\n\tLinked List\n");
         printf("1. Insert at beginnig of the linked list\n");
         printf("2. Insert at end of the linked list\n");
-        printf("3. Insert at Particular Location in linked list\n");
+        printf("3. Insert at particular location in linked list\n");
         printf("4. Delete at begining of the linked list\n");
         printf("5. Delete at end of the linked list\n");
-        printf("6. Display\n");
-        printf("7. EXIT\n");
+        printf("6. Delete at particular location in linked list\n");
+        printf("7. Display\n");
+        printf("8. EXIT\n");
         printf("\n\tEnter your choice: ");
         scanf("%d", &ch);
 
@@ -47,14 +49,17 @@ int main()
             del_at_end();
             break;
         case 6:
-            display();
+            del_at_loc();
             break;
         case 7:
+            display();
+            break;
+        case 8:
             exit(1);
         default:
             break;
         }
-    } while (ch != 7);
+    } while (ch != 8);
 
     return 0;
 }
@@ -177,6 +182,30 @@ void del_at_end()
             ptr = ptr->next;
         }
         prevptr->next = NULL;
+        printf("\n\t%d is Deleted\t", ptr->data);
+        free(ptr);
+    }
+}
+void del_at_loc()
+{
+    int num;
+    struct node *ptr, *temp, *preptr;
+    if (start == NULL)
+    {
+        printf("\n\tList is Empty\n\n");
+    }
+    else
+    {
+        printf("Enter number to delete: ");
+        scanf("%d", &num);
+        ptr = start;
+        preptr = start;
+        while (ptr->data != num)
+        {
+            preptr = ptr;
+            ptr = ptr->next;
+        }
+        preptr->next = ptr->next;
         printf("\n\t%d is Deleted\t", ptr->data);
         free(ptr);
     }
