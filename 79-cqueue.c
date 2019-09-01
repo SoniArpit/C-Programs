@@ -45,8 +45,6 @@ void main()
 void insertQ()
 {
 	int val;
-	printf("Enter value to insert in queue: ");
-	scanf("%d", &val);
 
 	if ((f == 0 && r == n - 1) || (f == r + 1))
 	{
@@ -55,6 +53,8 @@ void insertQ()
 
 	else
 	{
+		printf("Enter value to insert in queue: ");
+		scanf("%d", &val);
 		if (f == -1 && r == -1)
 		{
 			f = 0;

@@ -25,19 +25,15 @@ int main()
         switch (ch)
         {
         case '1':
-            printf("Push\n");
             push();
             break;
         case '2':
-            printf("Pop\n");
             pop();
             break;
         case '3':
-            printf("Peep\n");
             peep();
             break;
         case '4':
-            printf("Update\n");
             update();
             break;
         case '5':
@@ -46,7 +42,7 @@ int main()
             break;
         case 'E':
             printf("\tBye!\n");
-            exit(1);
+            exit(0);
         default:
             break;
         }
@@ -78,6 +74,7 @@ void pop()
     {
         printf("\n\tPopped Value is %d", stack[top]);
         top--;
+        display();
     }
 }
 
