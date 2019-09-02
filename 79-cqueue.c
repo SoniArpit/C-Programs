@@ -15,8 +15,8 @@ void main()
 
 	do
 	{
-		printf("\n\n1. Insert in queue\n");
-		printf("2. Delete in queue\n");
+		printf("\n\n1. Insert\n");
+		printf("2. Delete\n");
 		printf("3. Diplay\n");
 		printf("4. Exit\n");
 		printf("\n\tEnter your choice: ");
@@ -34,7 +34,7 @@ void main()
 			displayQ();
 			break;
 		case 4:
-			exit(1);
+			exit(0);
 		default:
 			printf("\n\tSomething went wrong!! Please Try Again :(\n\n");
 		}
@@ -57,8 +57,7 @@ void insertQ()
 		scanf("%d", &val);
 		if (f == -1 && r == -1)
 		{
-			f = 0;
-			r = 0;
+			r = f = 0;
 		}
 
 		else if (f != 0 && r == n - 1)
@@ -116,7 +115,7 @@ void displayQ()
 		while(i <= r)
 	    		printf("%d\t",queue[i++]);
       }*/
-
+	printf("\n\nElements in queue\n\n");
 	if (f <= r)
 	{
 		for (i = f; i <= r; i++)

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 void insertInQueue();
 void deleteInQueue();
 void display();
@@ -91,6 +92,7 @@ void display()
     }
     else
     {
+        printf("\n\nElements in Queue\n\n");
         for (i = f; i <= r; i++)
         {
             printf("| %d |", queue[i]);

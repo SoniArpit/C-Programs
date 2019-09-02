@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-void ins_at_beg();
-void ins_at_end();
-void ins_at_loc();
-void del_at_beg();
-void del_at_end();
-void del_at_loc();
+void insAtBeg();
+void insAtEnd();
+void insAtLoc();
+void delAtBeg();
+void delAtEnd();
+void delAtLoc();
 void display();
 struct node
 {
@@ -17,39 +17,41 @@ int val;
 int main()
 {
     int ch;
+
     do
     {
         printf("\n\tLinked List\n");
-        printf("1. Insert at beginnig of the linked list\n");
-        printf("2. Insert at end of the linked list\n");
-        printf("3. Insert at particular location in linked list\n");
-        printf("4. Delete at begining of the linked list\n");
-        printf("5. Delete at end of the linked list\n");
-        printf("6. Delete at particular location in linked list\n");
+        printf("1. Insert at Beginning\n");
+        printf("2. Insert at End\n");
+        printf("3. Insert at Particular Location\n");
+        printf("4. Delete at Beginning\n");
+        printf("5. Delete at End\n");
+        printf("6. Delete at Particular Location\n");
         printf("7. Display\n");
         printf("8. EXIT\n");
+
         printf("\n\tEnter your choice: ");
         scanf("%d", &ch);
 
         switch (ch)
         {
         case 1:
-            ins_at_beg();
+            insAtBeg();
             break;
         case 2:
-            ins_at_end();
+            insAtEnd();
             break;
         case 3:
-            ins_at_loc();
+            insAtLoc();
             break;
         case 4:
-            del_at_beg();
+            delAtBeg();
             break;
         case 5:
-            del_at_end();
+            delAtEnd();
             break;
         case 6:
-            del_at_loc();
+            delAtLoc();
             break;
         case 7:
             display();
@@ -64,7 +66,7 @@ int main()
     return 0;
 }
 
-void ins_at_beg()
+void insAtBeg()
 {
     struct node *ptr;
     ptr = (struct node *)malloc(sizeof(struct node));
@@ -75,14 +77,14 @@ void ins_at_beg()
     else
     {
 
-        printf("Enter a value to enter in linked list: ");
+        printf("Enter a value to insert in linked list: ");
         scanf("%d", &val);
         ptr->data = val;
         ptr->next = start;
         start = ptr;
     }
 }
-void ins_at_end()
+void insAtEnd()
 {
     struct node *ptr;
     ptr = (struct node *)malloc(sizeof(struct node));
@@ -92,7 +94,7 @@ void ins_at_end()
     }
     else
     {
-        printf("Enter a value to enter in linked list: ");
+        printf("Enter a value to insert in linked list: ");
         scanf("%d", &val);
         ptr->data = val;
         ptr->next = NULL;
@@ -112,7 +114,7 @@ void ins_at_end()
     }
 }
 
-void ins_at_loc()
+void insAtLoc()
 {
     struct node *ptr, *temp, *pretemp;
     int loc;
@@ -125,11 +127,10 @@ void ins_at_loc()
     {
         printf("Enter location(number) to enter: ");
         scanf("%d", &loc);
-        printf("Enter a value to enter in linked list: ");
+        printf("Enter a value to insert in linked list: ");
         scanf("%d", &val);
         ptr->data = val;
         ptr->next = NULL;
-        // check List is empty or not
         if (start == NULL)
         {
             start = ptr;
@@ -150,7 +151,7 @@ void ins_at_loc()
     }
 }
 
-void del_at_beg()
+void delAtBeg()
 {
     if (start == NULL)
     {
@@ -161,12 +162,12 @@ void del_at_beg()
         struct node *temp = start;
         int ptr = start->data;
         temp = start->next;
-        printf("\n\t%d is Deleted\t", start->data);
+        printf("\n\t%d is Deleted\t", ptr);
         free(start);
         start = temp;
     }
 }
-void del_at_end()
+void delAtEnd()
 {
     if (start == NULL)
     {
@@ -186,7 +187,7 @@ void del_at_end()
         free(ptr);
     }
 }
-void del_at_loc()
+void delAtLoc()
 {
     int num;
     struct node *ptr, *temp, *preptr;
@@ -217,8 +218,8 @@ void display()
     while (t->next != NULL)
     {
 
-        printf("| %d | %p |-->", t->data, t->next);
+        printf("| %d |-->", t->data);
         t = t->next;
     }
-    printf("| %d | %p |\n\n", t->data, t->next);
+    printf("| %d |\n\n", t->data);
 }
