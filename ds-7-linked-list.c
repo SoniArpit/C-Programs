@@ -29,7 +29,6 @@ int main()
         printf("6. Delete at Particular Location\n");
         printf("7. Display\n");
         printf("8. EXIT\n");
-
         printf("\n\tEnter your choice: ");
         scanf("%d", &ch);
 
@@ -207,7 +206,7 @@ void delAtLoc()
             ptr = ptr->next;
         }
         preptr->next = ptr->next;
-        printf("\n\t%d is Deleted\t", ptr->data);
+        printf("\n\t%d is Deleted\n", ptr->data);
         free(ptr);
     }
 }
