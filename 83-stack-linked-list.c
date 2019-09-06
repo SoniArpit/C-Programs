@@ -53,19 +53,18 @@ void push()
 {
     struct node *ptr;
     ptr = (struct node *)malloc(sizeof(struct node));
-    if (ptr == NULL)
+    printf("Enter a value to insert in linked list: ");
+    scanf("%d", &val);
+    ptr->data = val;
+    if (top == NULL)
     {
-        printf("Memory is not available");
+        ptr->next = NULL;
     }
     else
     {
-
-        printf("Enter a value to insert in linked list: ");
-        scanf("%d", &val);
-        ptr->data = val;
         ptr->next = top;
-        top = ptr;
     }
+    top = ptr;
 }
 void pop()
 {
@@ -76,9 +75,8 @@ void pop()
     else
     {
         struct node *temp = top;
-        int val = top->data;
         temp = top->next;
-        printf("\n\tDeleted element is %d", val);
+        printf("\n\tDeleted element is %d", top->data);
         free(top);
         top = temp;
     }
