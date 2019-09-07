@@ -75,7 +75,7 @@ void deleteQ()
     {
         struct node *temp = f;
         f = f->next;
-        printf("\nPopped value %d", temp->data);
+        printf("\nDeleted value %d", temp->data);
         free(temp);
     }
 }

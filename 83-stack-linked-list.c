@@ -53,7 +53,7 @@ void push()
 {
     struct node *ptr;
     ptr = (struct node *)malloc(sizeof(struct node));
-    printf("Enter a value to insert in linked list: ");
+    printf("Enter a value to insert in stack: ");
     scanf("%d", &val);
     ptr->data = val;
     if (top == NULL)
@@ -103,5 +103,6 @@ void display()
         printf(" ---- \n");
         t = t->next;
     }
-    printf("| %d |\n\n", t->data);
+    printf("| %d |\n", t->data);
+    printf(" ---- \n\n");
 }
