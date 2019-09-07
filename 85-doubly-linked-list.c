@@ -167,9 +167,64 @@ void insLoc()
         }
     }
 }
-void delBeg() {}
-void delEnd() {}
-void delLoc() {}
+void delBeg()
+{
+    struct node *ptr;
+    if (start == NULL)
+    {
+        printf("\nList is Empty\n");
+    }
+    else
+    {
+        ptr = start;
+        start = start->next;
+        start->prev = NULL;
+        printf("Deleted data is %d from Beginning", ptr->data);
+        free(ptr);
+    }
+}
+void delEnd()
+{
+    struct node *temp;
+    if (start == NULL)
+    {
+        printf("\nList is Empty\n");
+    }
+    else
+    {
+        temp = start;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->prev->next = NULL;
+        printf("Deleted data is %d from Beginning", temp->data);
+        free(temp);
+    }
+}
+void delLoc()
+{
+    struct node *temp;
+    int loc;
+    if (start == NULL)
+    {
+        printf("\nList is Empty\n");
+    }
+    else
+    {
+        printf("\nEnter location to delete: ");
+        scanf("%d", &loc);
+        temp = start;
+        while (temp->data != loc)
+        {
+            temp = temp->next;
+        }
+        temp->prev->next = temp->next;
+        temp->next->prev = temp->prev;
+        printf("Deleted data is %d from Beginning", temp->data);
+        free(temp);
+    }
+}
 void display()
 {
     if (start == NULL)
