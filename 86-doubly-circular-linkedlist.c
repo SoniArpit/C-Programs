@@ -244,8 +244,10 @@ void display()
         while (ptr->next != start)
         {
             printf("%d\n", ptr->data);
+            //printf("|%p|%d[%p]|%p|-", ptr->prev, ptr->data, ptr, ptr->next);
             ptr = ptr->next;
         }
         printf("%d\n", ptr->data);
+        //printf("|%p|%d[%p]|%p|", ptr->prev, ptr->data, ptr, ptr->next);
     }
 }
