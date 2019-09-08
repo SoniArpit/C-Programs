@@ -10,27 +10,26 @@ void display();
 
 struct node
 {
-    struct node *prev;
+    struct node *prev, *next;
     int data;
-    struct node *next;
 };
 struct node *start = NULL;
 
 int main()
 {
     int ch;
-    printf("\n\tDoubly Circular Linked List\n");
-    printf("1. Insert at Beginning\n");
-    printf("2. Insert at End\n");
-    printf("3. Insert at any location\n");
-    printf("4. Delete from Beginning\n");
-    printf("5. Delete from End\n");
-    printf("6. Delete from any location\n");
-    printf("7. Display\n");
-    printf("8. EXIT\n\n");
 
     do
     {
+        printf("\n\tDoubly Circular Linked List\n");
+        printf("1. Insert at Beginning\n");
+        printf("2. Insert at End\n");
+        printf("3. Insert at any location\n");
+        printf("4. Delete from Beginning\n");
+        printf("5. Delete from End\n");
+        printf("6. Delete from any location\n");
+        printf("7. Display\n");
+        printf("8. EXIT\n\n");
         printf("\n\nEnter your choice: ");
         scanf("%d", &ch);
 
@@ -216,7 +215,7 @@ void delLoc()
     }
     else
     {
-        printf("\nEnter location to delete: ");
+        printf("\nEnter number to delete: ");
         scanf("%d", &loc);
         temp = start;
         while (temp->data != loc)
@@ -243,11 +242,11 @@ void display()
 
         while (ptr->next != start)
         {
-            printf("%d\n", ptr->data);
+            printf("| %d |", ptr->data);
             //printf("|%p|%d[%p]|%p|-", ptr->prev, ptr->data, ptr, ptr->next);
             ptr = ptr->next;
         }
-        printf("%d\n", ptr->data);
+        printf("| %d |", ptr->data);
         //printf("|%p|%d[%p]|%p|", ptr->prev, ptr->data, ptr, ptr->next);
     }
 }
