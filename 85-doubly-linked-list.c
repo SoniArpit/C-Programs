@@ -198,7 +198,7 @@ void delEnd()
             temp = temp->next;
         }
         temp->prev->next = NULL;
-        printf("Deleted data is %d from Beginning", temp->data);
+        printf("Deleted data is %d from End", temp->data);
         free(temp);
     }
 }
@@ -221,7 +221,7 @@ void delLoc()
         }
         temp->prev->next = temp->next;
         temp->next->prev = temp->prev;
-        printf("Deleted data is %d from Beginning", temp->data);
+        printf("Deleted data is %d", temp->data);
         free(temp);
     }
 }
