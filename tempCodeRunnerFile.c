@@ -1,1 +1,2 @@
- ptr->data = val;
+  if (root)
+    {

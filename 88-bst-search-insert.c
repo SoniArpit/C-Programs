@@ -29,7 +29,7 @@ struct BST *insert(struct BST *root, int n)
     }
     else
     {
-        root->left = insert(root->right, n);
+        root->right = insert(root->right, n);
     }
     return root;
 }
@@ -50,7 +50,7 @@ int search(struct BST *root, int number)
     }
     else
     {
-        return search(root->left, number);
+        return search(root->right, number);
     }
 }
 int main()
@@ -63,7 +63,7 @@ int main()
         printf("\nPlease enter a number: ");
         scanf("%d", &n);
         root = insert(root, n);
-        fflush;
+
         printf("\nDo you insert more (y/n): ");
         scanf(" %c", &ch);
     } while (ch == 'y' || ch != 'n');
