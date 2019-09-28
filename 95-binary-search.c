@@ -18,6 +18,10 @@ void binarySearch(int a[], int l, int h, int key)
             printf("\n%d found at location %d\n", a[mid], mid + 1);
             break;
         }
+        else
+        {
+            printf("\nElement not found!!\n");
+        }
     }
 }
 int main()
